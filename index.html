@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, My Love ❤️</title>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap)" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 15s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            background-image: image();
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .hero-heart {
+            font-size: 4rem;
+            animation: heartbeat 1s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+        }
+
+        /* Apology Letter Section */
+        .letter-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .letter-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter-content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #444;
+            text-align: justify;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #e91e63;
+            margin-top: 30px;
+        }
+
+        /* Sliding Mistakes Section */
+        .mistakes-section {
+            margin-bottom: 40px;
+        }
+
+        .mistakes-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .slide h3 {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+
+        .slide p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .slide .promise {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 10px;
+            border-left: 4px solid #e91e63;
+        }
+
+        .promise strong {
+            color: #e91e63;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .slider-btn.prev {
+            left: 10px;
+        }
+
+        .slider-btn.next {
+            right: 10px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scale(1.2);
+        }
+
+        /* Photo Gallery Section */
+        .gallery-section {
+            margin-bottom: 40px;
+        }
+
+        .gallery-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-box {
+            position: relative;
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .photo-box:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-box:nth-child(even):hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            color: #764ba2;
+        }
+
+        .photo-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .photo-placeholder span {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-box:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        .photo-overlay p {
+            color: white;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* Reasons I Love You Section */
+        .reasons-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .reasons-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .reason-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+            border-color: #e91e63;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+        }
+
+        .reason-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .reason-card h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .reason-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Promise Section */
+        .promise-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .promise-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .promise-list {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .promise-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .promise-item:hover {
+            transform: translateX(10px);
+        }
+
+        .promise-item .check {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .promise-item p {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Final Message */
+        .final-message {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.9), rgba(118, 75, 162, 0.9));
+            border-radius: 30px;
+            margin-bottom: 40px;
+        }
+
+        .final-message h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .final-message p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .love-btn {
+            display: inline-block;
+            padding: 15px 50px;
+            background: white;
+            color: #e91e63;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .love-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .slider-container {
+                padding: 30px 40px;
+            }
+
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .letter-section,
+            .reasons-section {
+                padding: 25px;
+            }
+
+            .photo-box {
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider-btn.prev {
+                left: 5px;
+            }
+
+            .slider-btn.next {
+                right: 5px;
+            }
+
+            .slider-container {
+                padding: 20px 35px;
+            }
+        }
+
+        .heart-feel-section {
+    background: rgba(255,255,255,0.97);
+    border-radius: 20px;
+    padding: clamp(20px,5vw,40px);
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.heart-feel-section .subtitle {
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+#heartInput {
+    width: 100%;
+    min-height: 150px;
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#heartInput:focus {
+    border-color: #e91e63;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #e91e63;
+    color: white;
+}
+
+.clear-btn {
+    background: #999 !important;
+}
+
+.preview-box {
+    margin-top: 20px;
+    background: #fff5f8;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.preview-box h3 {
+    margin-bottom: 10px;
+    color: #e91e63;
+}
+
+#heartPreview {
+    line-height: 1.7;
+    color: #444;
+    white-space: pre-wrap;
+}
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+    <source src="./Chahoge Tum Jaisa-(SambalpuriStar.In).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+   
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-heart">💕</div>
+            
+            <h1>To My Future Wife & Forever Love</h1>
+            <p>I know I messed up. I know I hurt you. But please know that everytime you're on my mind and , and every moment without your smile feels like an eternity. This is my way of saying...</p>
+            <div class="hero-heart">💕</div>
+        </section>
+
+        <!-- Apology Letter Section -->
+        <section class="letter-section">
+            <h2>💌 A Letter From My Heart</h2>
+            <div class="letter-content">
+                <p>Mera Baby❤️,</p>
+                <p>There are no words powerful enough to express how truly sorry I am. When I look back at what I did, my heart breaks knowing that I caused you pain – you, the person I love more than life itself, the one I want to spend every tomorrow with.</p>
+                <p>You are not just my girlfriend; you are my best friend, my confidante, my peace, and my future wife. The thought of losing you terrifies me more than anything in this world. You are the first thing I think about when I wake up and the last thought before I sleep.</p>
+                <p>I was wrong. I was foolish. I took for granted the most precious gift life has given me – your love. But I promise you, from the depths of my soul, that I will spend every day making this right, proving to you that you are my everything.</p>
+                <p>Please forgive me. Give me a chance to be the man you deserve. Let me show you that our love story is worth fighting for, that we are worth fighting for.</p>
+                <p>I love you more than yesterday, less than tomorrow, and for all the days of my life.</p>
+                <p></p>
+            </div>
+            <div class="signature">Forever Yours ❤️</div>
+        </section>
+
+        <section class="heart-feel-section">
+            <h2>💓 What My Heart Feels For You</h2>
+        
+            <p class="subtitle">Every word here comes straight from my heart...</p>
+        
+            <textarea id="heartInput" placeholder="Write everything you feel for her here... ❤️"></textarea>
+        
+            <div class="btn-group">
+                <button onclick="saveHeart()">💌 Save My Feelings</button>
+                <button onclick="clearHeart()" class="clear-btn">🗑 Clear</button>
+            </div>
+        
+            <div class="preview-box">
+                <h3>❤️ Your Message Preview</h3>
+                <p id="heartPreview">Your message will appear here...</p>
+            </div>
+        </section>
+
+        <!-- Sliding Mistakes Section -->
+        <section class="mistakes-section">
+            <h2>🙏 Where I Went Wrong</h2>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+                
+                <div class="slider" id="slider">
+                    <!-- Slide 1 -->
+                    <div class="slide">
+                        <span class="slide-number">1</span>
+                        <h3>I Didn't Listen When You Needed Me</h3>
+                        <p>There were times when you were trying to tell me something important, and I was too distracted. I didn't give you the attention you deserved. Your words matter to me, and I'm so sorry I made you feel unheard.</p>
+                        <div class="promise">
+                            <strong>My Promise:</strong> From now on, when you speak, you'll have my undivided attention. Your voice is the most important sound in my world.
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <span class="slide-number">2</span>
+                        <h3>I Let My Pride Come Before Us</h3>
+                        <p>I was stubborn when I should have been understanding. I let my ego build walls between us when I should have been building bridges to your heart.</p>
+                        <div class="promise">
+                            <strong>My Promise:</strong> I will always choose us over my pride. Our love is more important than being right.
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <span class="slide-number">3</span>
+                        <h3>I Forgot to Show You How Special You Are</h3>
+                        <p>In the routine of daily life, I forgot to remind you how amazing you are. I took for granted all the beautiful things you do for us.</p>
+                        <div class="promise">
+                            <strong>My Promise:</strong> Every day, I will find new ways to show you how much you mean to me.
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="slide">
+                        <span class="slide-number">4</span>
+                        <h3>I Wasn't There When You Needed Support</h3>
+                        <p>There were moments when you needed my shoulder, and I wasn't there. I'm sorry for every tear you shed alone when I should have been wiping them away.</p>
+                        <div class="promise">
+                            <strong>My Promise:</strong> I will be your rock, your shelter, your safe place – always and forever.
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 - Add more slides as needed -->
+                    <div class="slide">
+                        <span class="slide-number">5</span>
+                        <h3>I Made You Question My Love</h3>
+                        <p>My actions made you doubt how much I love you. That breaks my heart because loving you is the easiest and most natural thing I've ever done.</p>
+                        <div class="promise">
+                            <strong>My Promise:</strong> I will never let you doubt my love again. You will feel it in every word, every action, every moment.
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section">
+            <h2>📸 Our Beautiful Memories</h2>
+            <div class="gallery-grid">
+                <!-- Photo Box 1 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span> <video width="640" height="360" controls>
+                        
+  <source src="./Video1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+                        </span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>The day we first met – my life changed forever</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 2 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span> <img src="./Photo2.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Our first date – I knew you were the one</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 3 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span> <img src="./Photo3.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Your smile that lights up my darkest days</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 4 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo4.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>That trip where we made a thousand memories</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 5 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo5.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Lazy mornings with you are heaven Baby❤️</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 6 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span> <img src="./Photo6.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>When I Hug you feels like – I own the world</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 7 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo7.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Your laugh is my favorite song</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 8 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><video width="640" height="360" controls>
+                        
+  <source src="./Video2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Adventures with you are always the best</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 9 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span> <img src="./Photo8.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>The way you look at me melts my heart</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 10 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo10.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Every moment with you is a treasure</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 11 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span>
+                            <video width="640" height="360" controls>
+                        
+  <source src="./Video3.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+                        </span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Building our dreams together</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 12 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo12.jpeg" ></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>Celebrating life with my soulmate</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 13 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo13.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>You make ordinary days extraordinary</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 14 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo14.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>My heart belongs to you forever</p>
+                    </div>
+                </div>
+
+                <!-- Photo Box 15 -->
+                <div class="photo-box">
+                    <div class="photo-placeholder">
+                        <span>📷</span>
+                        <span><img src="./Photo15.jpeg" alt=""></span>
+                    </div>
+                    <div class="photo-overlay">
+                        <p>My future wife, my forever love</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reasons I Love You Section -->
+        <section class="reasons-section">
+            <h2>💖 Why I Love You</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="icon">✨</div>
+                    <h3>Your Beautiful Soul</h3>
+                    <p>The kindness in your heart makes everyone around you feel special. You see the good in everyone.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="icon">😊</div>
+                    <h3>Your Smile</h3>
+                    <p>One smile from you can turn my worst day into the best. It's the sunrise of my life.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="icon">💪</div>
+                    <h3>Your Strength</h3>
+                    <p>The way you face challenges inspires me every day. You are stronger than you know.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="icon">🎵</div>
+                    <h3>Your Laughter</h3>
+                    <p>The sound of your laughter is the most beautiful melody I've ever heard.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="icon">🤗</div>
+                    <h3>Your Warmth</h3>
+                    <p>Being in your arms feels like coming home. You are my safe place.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="icon">💫</div>
+                    <h3>Your Dreams</h3>
+                    <p>Your ambitions and dreams make me want to be a better person to support you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promise Section -->
+        <section class="promise-section">
+            <h2>🌟 My Promises To You</h2>
+            <div class="promise-list">
+                <div class="promise-item">
+                    <div class="check">✓</div>
+                    <p>I promise to love you more with each passing day, even when it seems impossible.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check">✓</div>
+                    <p>I promise to listen, truly listen, when you share your heart with me.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check">✓</div>
+                    <p>I promise to be your biggest supporter, cheerleader, and partner in everything.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check">✓</div>
+                    <p>I promise to never take you or our love for granted again.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check">✓</div>
+                    <p>I promise to choose you, every day, for the rest of my life.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="check">✓</div>
+                    <p>I promise to be the man you deserve – patient, loving, and completely devoted to you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Message -->
+        <section class="final-message">
+            <h2>Will You Forgive Me?</h2>
+            <p>You are my heart, my soul, my everything. I can't imagine a single day without you by my side. Please give us another chance. I promise to spend the rest of my life making you the happiest woman in the world.</p>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;">I love you more than words could ever express. 💕</p>
+            <a href="#" class="love-btn" onclick="showLove()">💕 I Love You Forever 💕</a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with all my love, just for you ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        // Floating Hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Slider Functionality
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Create dots
+        const dotsContainer = document.getElementById('sliderDots');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => moveSlide(1), 5000);
+
+        // Love button effect
+        function showLove() {
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '😍', '🥰'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = Math.random() * 100 + 'vh';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    heart.style.zIndex = '9999';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.animation = 'pop 1s ease-out forwards';
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 1000);
+                }, i * 50);
+            }
+            
+            alert('I love you too, forever and always! 💕');
+        }
+// SAVE FUNCTION
+function saveHeart() {
+    const text = document.getElementById("heartInput").value;
+    localStorage.setItem("heartMessage", text);
+    document.getElementById("heartPreview").innerText = text;
+}
+
+// CLEAR FUNCTION
+function clearHeart() {
+    document.getElementById("heartInput").value = "";
+    document.getElementById("heartPreview").innerText = "Your message will appear here...";
+    localStorage.removeItem("heartMessage");
+}
+
+// LOAD SAVED MESSAGE
+window.addEventListener("load", () => {
+    const saved = localStorage.getItem("heartMessage");
+    if (saved) {
+        document.getElementById("heartInput").value = saved;
+        document.getElementById("heartPreview").innerText = saved;
+    }
+});
+
+// LIVE PREVIEW WHILE TYPING
+document.getElementById("heartInput").addEventListener("input", function() {
+    document.getElementById("heartPreview").innerText = this.value;
+});
+        // Add pop animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pop {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+                100% { transform: scale(0) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+  const music = document.getElementById("bgMusic");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play().catch(err => console.log("Playback blocked:", err));
+    } else {
+        music.pause();
+    }
+}
+
+// Tap anywhere → toggle music
+document.body.addEventListener("click", toggleMusic);
+document.body.addEventListener("touchstart", toggleMusic);
+
+// 🛑 Stop music when clicking images/videos
+const mediaElements = document.querySelectorAll("img, video");
+
+mediaElements.forEach(el => {
+    el.addEventListener("click", function(e) {
+        e.stopPropagation(); // prevent body toggle
+        music.pause();
+    });
+
+    el.addEventListener("touchstart", function(e) {
+        e.stopPropagation();
+        music.pause();
+    });
+});
+    </script>
+</body>
+</html>
